@@ -2,37 +2,36 @@ package main
 
 import "fmt"
 
-func Contains(s string, c rune) bool {
-	for _, r := range s {
-		if r == c {
+func Has(s string,c rune)bool{
+	for _,r:=range s{
+		if r==c{
 			return true
 		}
 	}
 	return false
 }
 
-func WeareUnique(str1, str2 string) int {
-	if str1 == "" && str2 == "" {
+func WeAreUnique(str1,str2 string)int{
+	if str1==""&& str2==""{
 		return -1
 	}
-	unique := ""
+	unique:=""
 
-	for _, v := range str1 {
-		if !Contains(str2, v) && !Contains(unique, v) {
-			unique = unique + string(v)
+	for _,v:=range str1{
+		if !Has(str2,v)&& !Has(unique,v){
+			unique= unique+string(v)
 		}
 	}
-	for _, v := range str2 {
-		if !Contains(str1, v) && !Contains(unique, v) {
-			unique = unique + string(v)
+	for _,v:=range str2{
+		if !Has(str1,v) && !Has(unique,v){
+			unique= unique+string(v)
 		}
 	}
 	return len(unique)
 }
 
 func main() {
-	fmt.Println(WeareUnique("hello", "mercy"))
-	fmt.Println(WeareUnique("return", "remain"))
-	fmt.Println(WeareUnique("hi", "hit"))
-	fmt.Println(WeareUnique("cool", "kind"))
+	fmt.Println(WeAreUnique("foo", "boo"))
+	fmt.Println(WeAreUnique("", ""))
+	fmt.Println(WeAreUnique("abc", "def"))
 }
